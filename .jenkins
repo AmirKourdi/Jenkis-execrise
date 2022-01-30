@@ -1,0 +1,14 @@
+pipeline {
+    agnet any
+    stages {
+       stages('Build'){
+           steps {
+               sh 'echo "Hellow World"'
+               sh '''
+                   echo "Multiline shell steps works too"
+                   ls -lah
+               '''
+            }
+        }
+    } 
+}
