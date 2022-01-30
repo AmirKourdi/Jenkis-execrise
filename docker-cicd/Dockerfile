@@ -14,7 +14,7 @@ node{
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
         sh "docker login -u kammana -p ${dockerHubPwd}"
      }
-     sh 'docker push kammana/my-app:2.0.0'
+     sh 'docker push 85575/test_sqreeam:latest'
    }
    stage('Run Container on Dev Server'){
      def dockerRun = 'docker run -p 8080:8080 -d --name my-app 85575/test_sqreeam:latest'
