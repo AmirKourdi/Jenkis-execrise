@@ -1,14 +1,26 @@
 pipeline {
-    agent any
+    agent {
+        label 'master'
+    }
+    environment {
+        JENKINS_ENV = "True"
+    }
     stages {
-        stages('Build'){
-            steps {
-               sh 'echo "Hellow World"'
-               sh '''
-                   echo "Multiline shell steps works too"
-                   ls -lah
-               '''
+        stage('Checkout Source'){
+            steps{
+                checkout(
+                    [
+                        $class: 'GitSCM',
+                        branches: [[name: 'origin/main']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [[$class: "GitLFSPull"]],
+                        submoduleCfg: [],
+                    ])
             }
         }
-    } 
+    post {
+        always {
+            echo 'I will always say Hello again!'
+        }
+    }
 }
