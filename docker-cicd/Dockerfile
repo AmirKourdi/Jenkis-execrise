@@ -12,7 +12,7 @@ node{
    }
    stage('Push Docker Image'){
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-        sh "docker login -u kammana -p ${dockerHubPwd}"
+        sh "docker login -u 85575 -p ${dockerHubPwd}"
      }
      sh 'docker push 85575/test_sqreeam:latest'
    }
