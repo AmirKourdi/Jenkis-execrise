@@ -10,9 +10,7 @@ pipeline {
                     [
                         $class: 'GitSCM',
                         branches: [[name: 'origin/main']],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [[$class: "GitLFSPull"]],
-                        submoduleCfg: []
+                        doGenerateSubmoduleConfigurations: false
                     ])
             }
         }
