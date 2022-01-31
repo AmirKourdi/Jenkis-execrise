@@ -1,4 +1,7 @@
 pipeline {
+    agent {
+        label 'any'
+    }
     environment {
         JENKINS_ENV = "True"
     }
